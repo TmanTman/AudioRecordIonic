@@ -5,8 +5,9 @@ The MediaRecorder is now available natively in some browsers. This example defin
 
 To run the project:
  - Clone the repo
- - install the dependencies: bower install
- - install the plugins:
+ - Install the dependencies: bower install
+ - Add the Android platform: $ cordova platforms add android
+ - Install the plugins:
    - Crosswalk browser: $ cordova plugins add cordova-plugin-crosswalk-webview
    - File API: $ cordova plugins add cordova-plugin-file
    - Media (for permission, could probably just necessary permissions): $ cordova plugins add cordova-plugin-media
