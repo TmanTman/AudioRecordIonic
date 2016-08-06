@@ -24,4 +24,5 @@
         this.error = 'AudioPlayerNotDefined';
         this.toString = function() { return this.messsage; };
     }
+
 })();
