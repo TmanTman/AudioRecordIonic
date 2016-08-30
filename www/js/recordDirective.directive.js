@@ -38,12 +38,20 @@
                                     });
                                     mediaStream = stream;
                                     mediaRecorder = new MediaRecorder(stream, {
-                                        mimeType: 'audio/webm'
+                                        mimeType: 'audio/webm;codecs=opus',
+                                        audioBitsPerSecond: 128000
                                     });
                                     mediaRecorder.ondataavailable = function (event) {
-                                        if (scope.recording) {
-                                            recordedBlobs.push(event.data);
-                                        }
+                                        recordedBlobs.push(event.data);
+                                    };
+                                    mediaRecorder.onstop = function() {
+                                        var superAudioBuffer = new Blob(recordedBlobs, {
+                                            type: 'audio/webm'
+                                        });
+                                        AudioPlayer.initialiseAudio(superAudioBuffer).then(function(path) {
+                                            audioElement.src = path;
+                                            audioElement.play();
+                                        });
                                     };
                                     mediaRecorder.start(10);
                                 },
@@ -64,20 +72,10 @@
                             console.log('stopping stream track');
                             track.stop();
                         });
-                        var superAudioBuffer = new Blob(recordedBlobs, {
-                            type: 'audio/webm'
-                        });
-                        console.log(superAudioBuffer);
-                        AudioPlayer.initialiseAudio(superAudioBuffer).then(function(path) {
-                            audioElement.src = path;
-                            audioElement.play();
-                        })
                     }
                 };
             }
         };
         return ddo;
     }
-
-
 })();
