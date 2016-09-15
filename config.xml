@@ -14,13 +14,13 @@
     <preference name="DisallowOverscroll" value="true" />
     <preference name="SplashScreenDelay" value="2000" />
     <preference name="FadeSplashScreenDuration" value="2000" />
-    <preference name="android-minSdkVersion" value="16" />
     <preference name="BackupWebStorage" value="none" />
     <feature name="StatusBar">
         <param name="ios-package" onload="true" value="CDVStatusBar" />
     </feature>
-    <preference name="xwalkVersion" value="19+" />
+    <preference name="xwalkVersion" value="org.xwalk:xwalk_core_library_beta:22+" />
     <preference name="xwalkCommandLine" value="--disable-pull-to-refresh-effect" />
     <preference name="xwalkMode" value="embedded" />
     <preference name="xwalkMultipleApk" value="true" />
+    <preference name="android-minSdkVersion" value="16" />
 </widget>
